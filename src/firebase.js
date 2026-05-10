@@ -1,11 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase } from "firebase/database"; 
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBWj6fLHxgmNdXAGP3FEEa5Vjh3ievjk8o",
   authDomain: "primerdb2.firebaseapp.com",
@@ -20,3 +16,27 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+// 2. Initialize and Export the Database
+export const db = getDatabase(app);
+
+// 3. Re-export 'ref' so your components can find it here
+export { 
+  ref, 
+  set, 
+  onValue, 
+  push, 
+  off, 
+  get, 
+  update, 
+  remove, 
+  query, 
+  orderByChild, 
+  orderByKey, 
+  orderByValue, 
+  limitToFirst, 
+  limitToLast, 
+  startAt, 
+  endAt, 
+  equalTo 
+} from "firebase/database";
