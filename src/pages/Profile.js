@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { db, ref, update } from '../firebase';
 import Modal from '../components/Modal';
 
 export default function Profile() {
+  const nav = useNavigate();
   const { session, user, logout } = useAuth();
   const empId = session?.employeeId;
   const [modal, setModal] = useState(null);
